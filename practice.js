@@ -215,11 +215,12 @@ var user2 = {
 // name -> 'Tyler S. McGinnis', email -> 'tyler.mcginnis@devmounta.in'. Make that change.
 
   //Code Here
-
+user2.name = "Tyler S. McGinnis";
+user2.email = "tyler.mcginnis@devmounta.in";
 //Now call the sayName method that's on the user object which will alert the users email
 
   //Code Here
-
+user2.sayName();
 
 
 
@@ -232,17 +233,25 @@ var user2 = {
 
   //Code Here
 
+var methodCollection = {};
+
 /*Now add two methods (functions that are properties on objects) to your methodCollection
 object. One called 'alertHello' which alerts 'hello' and another method called logHello
  which logs 'hello' to the console. */
 
   //Code Here
+methodCollection.alertHello = function() {
+  alert("hello");
+};
 
+methodCollection.logHello = function() {
+  console.log("hello");
+}
 //Now call your alertHello and logHello methods.
 
   //Code Here
-
-
+methodCollection.alertHello();
+methodCollection.logHello();
 
 //NEXT PROBLEM
 
@@ -251,7 +260,12 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 // Create a function called MakePerson which takes in name, birthday, ssn as its parameters and returns a new object with all of the information that you passed in.
 
   //Code Here
-
+function MakePerson(name, birthday, ssn) {
+  this.name = name;
+  this.birthday = birthday;
+  this.ssn = ssn;
+  return {name:"jessica", birthday:"feb 9", ssn:"444"};
+};
 
 
 //NEXT PROBLEM
@@ -261,7 +275,11 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 // Create a function called MakeCard which takes in all the data it needs to make a Credit Card object and returns that object so that whenever you invoke MakeCard, you get a brand new credit card.
 
   //Code Here
-  
+function MakeCard(number, securityCode) {
+  this.number = number;
+  this.securityCode;
+  return {number:"56746574", securityCode:"123"};
+}
   
   
 //NEXT PROBLEM
@@ -274,5 +292,7 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 */
 
   //Code Here
+function MakeCard() {
 
+}
 
