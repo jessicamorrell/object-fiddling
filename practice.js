@@ -177,15 +177,11 @@ that each value is truthy. If it's not truthy, remove it from the object. */
 
   //Code Here
 for (var key in user1) {
-  if (key) {
-
-  }
-  else {
-    delete user1[key];
+  if (!user1[key]) {
+  	delete user1[key];
   }
 }
 
-console.log(user1.email);
 //Once you get your truthy Object, Change the remaining values in the object to be specific to you (name: 'your name', username: 'your username'), rather than my information.
 
   //Code Here
@@ -261,10 +257,11 @@ methodCollection.logHello();
 
   //Code Here
 function MakePerson(name, birthday, ssn) {
-  this.name = name;
-  this.birthday = birthday;
-  this.ssn = ssn;
-  return {name:"jessica", birthday:"feb 9", ssn:"444"};
+  return {
+  	name: name,
+  	birthday: birthday,
+  	ssn: ssn}
+  //return ({name:this.name, birthday:this.birthday, ssn:this.ssn});
 };
 
 
@@ -275,10 +272,18 @@ function MakePerson(name, birthday, ssn) {
 // Create a function called MakeCard which takes in all the data it needs to make a Credit Card object and returns that object so that whenever you invoke MakeCard, you get a brand new credit card.
 
   //Code Here
-function MakeCard(number, securityCode) {
+/*function MakeCard(number, securityCode) {
   this.number = number;
   this.securityCode;
-  return {number:"56746574", securityCode:"123"};
+  return ({number:this.number, securityCode:this.securtityCode});
+}*/
+
+function MakeCard(number, securityCode) {
+	return {
+		number: number,
+		expMonth: expMonth,
+		expYear: expYear
+	}
 }
   
   
@@ -292,7 +297,42 @@ function MakeCard(number, securityCode) {
 */
 
   //Code Here
-function MakeCard() {
-
+function bindCard(person, creditcard) {
+	var combined = {};
+	for (var key in person) {
+		combined[key] = person[key];
+	}
+	for (var key in creditcard) {
+		combined[key] = creditcard[key];
+	}
+	return combined;
+	this.person = person;
+	this.creditcard = creditcard;
+	return ({person:this.person, creditcard:this.creditcard});
 }
 
+/*
+var jessicaForm = {
+  firstName: "jessica",
+  lastName: "morrell",
+};
+
+
+ creditcard= {
+    number: "5555 5555 5555 5555",
+    expDate: "Jan 2018",
+    CC: "123"
+ };
+
+var combined = {};
+
+for (var key in creditcard) {
+  combined[key] = creditcard[key];
+}
+
+for (var key in jessicaForm) {
+  combined[key] = jessicaForm[key];
+}
+
+creditcard.jessicaForm.number = '00000000';
+console.log(combined);*/
